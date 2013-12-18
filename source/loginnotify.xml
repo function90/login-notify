@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+    <name>System-Login Notify</name>
+    <version>0.0.1</version>
+    <creationDate>Dec 2013</creationDate>
+    <author>Team Function90</author>
+    <authorEmail>dev.function90+contact@gmail.com</authorEmail>
+    <authorUrl>http://www.function90.com</authorUrl>
+    <copyright>2013 Function90</copyright>
+    <license>GNU General Public License v2</license>
+    <description>PLG_SYSTEM_LOGINNOTIFY_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="loginnotify">loginnotify.php</filename>
+		<filename>index.html</filename>
+		<filename>usertype.php</filename>
+	</files>
+	
+	<languages>
+		<language tag="en-GB">en-GB.plg_system_loginnotify.sys.ini</language>
+	</languages>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+			
+				<field name="mail_to_admin" type="text"
+					description="PLG_SYSTEM_LOGINNOTIFY_MAIL_TO_DETAIL"
+					label="PLG_SYSTEM_LOGINNOTIFY_MAIL_TO"
+					default=""
+					required="true"
+				/>
+				
+				<field name="mail_subject" type="text"
+					description="PLG_SYSTEM_LOGINNOTIFY_MAIL_SUBJECT_DETAIL"
+					label="PLG_SYSTEM_LOGINNOTIFY_MAIL_SUBJECT"
+					default=""
+					required="true"
+				/>
+				
+				<field name="mail_content" type="textarea"
+					description="PLG_SYSTEM_LOGINNOTIFY_MAIL_CONTENT_DETAIL"
+					label="PLG_SYSTEM_LOGINNOTIFY_MAIL_CONTENT"
+					default=""
+					rows="10"
+					cols="20"
+					required="true"
+				/>
+				
+				<field name="alert_user" type="radio"
+					description="PLG_SYSTEM_LOGINNOTIFY_ALERT_USER_DETAIL"
+					label="PLG_SYSTEM_LOGINNOTIFY_ALERT_USER"
+					default="0" class="btn-group">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				
+				<field	name="tokenspacer"
+					label="PLG_SYSTEM_LOGINNOTIFY_AVAILABLE TOKENS"
+					description="PLG_SYSTEM_LOGINNOTIFY_ALAVAILABLE_TOKENS_DETAIL"
+					type="spacer" readonly="true" />
+					
+				<field name="usertype" type="ln.usertype"
+					description="PLG_SYSTEM_LOGINNOTIFY_USERTYPE_DETAIL"
+					label="PLG_SYSTEM_LOGINNOTIFY_USERTYPE"
+					default=""
+					required="true"
+					multiple="true"
+					addfieldpath="/plugins/system/LOGINNOTIFY"
+				/>
+				
+				<field name="application" type="list"
+					description="PLG_SYSTEM_LOGINNOTIFY_APPLICATION_DETAIL"
+					label="PLG_SYSTEM_LOGINNOTIFY_APPLICATION"
+					default="2">
+					<option value="0">Admin</option>
+					<option value="1">Site</option>
+					<option value="2">Admin and Site</option>
+				</field>
+				
+			</fieldset>
+		</fields>
+	 </config>
+</extension>
+
+
