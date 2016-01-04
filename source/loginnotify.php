@@ -139,7 +139,13 @@ class plgSystemLoginnotify extends JPlugin
 		$usergroups = $db->loadRow();		
 		$usergroups = implode(',', array_values($usergroups));
 
-		$tokens = array('{LA_USERID}'=>$user->id, '{LA_EMAIL}'=>$user->email, '{LA_USERNAME}'=>$user->username, '{LA_NAME}'=>$user->name, '{LA_LOCATION}'=>$app, '{LA_USERGROUP}'=>$usergroups);
+		$tokens = array('{LA_USERID}'=>$user->id, 
+						'{LA_EMAIL}'=>$user->email, 
+						'{LA_USERNAME}'=>$user->username, 
+						'{LA_NAME}'=>$user->name, 
+						'{LA_LOCATION}'=>$app, 
+						'{LA_USERGROUP}'=>$usergroups,
+						'{LA_USERIP}'=>$_SERVER['REMOTE_ADDR']);
 
 		foreach($tokens as $key => $value){
 			$content =  str_replace($key, $value, $content);
